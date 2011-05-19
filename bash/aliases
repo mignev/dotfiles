@@ -1,0 +1,50 @@
+#!/bin/bash
+
+alias reload_aliases="source ~/.bash/aliases"
+alias reload_bash="source ~/.bash/config"
+
+alias ls="ls -G"
+alias wgets="wget --no-check-certificate"
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+alias pyg="pygrep"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias cdd='cd -'  # back to last directory
+alias o="open ."  # OS X, open in Finder
+
+###
+# Functions
+###
+
+# Clone github repo
+ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$1"; }
+
+######################
+# Print working file.
+function pwf {
+  echo "$PWD/$1"
+}
+
+# Create directory and cd to it.
+function mkcd {
+  mkdir -p "$1" && cd "$1"
+}
+
+# SSH to the given machine and add your id_rsa.pub or id_dsa.pub to authorized_keys.
+#
+# ~$ sshkey server
+# Password:
+# sshkey done.
+
+function sshkey {
+  ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_?sa.pub
+    echo "sshkey done."
+}
+######################
+# These last 3 functuions are from http://github.com/henrik/dotfiles/raw/master/bash/functions.sh
+######################
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}

@@ -1,0 +1,22 @@
+[user]
+	name = Marian Ignev
+	email = m.ignev@gmail.com
+[github]
+    user = mignev
+[color]
+    ui = auto
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+
