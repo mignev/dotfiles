@@ -1,4 +1,5 @@
 source ~/.bash/aliases
+source ~/.bash/tmux_apps
 source ~/.bash/paths
 source ~/.bash/config
 source ~/.bash/env
