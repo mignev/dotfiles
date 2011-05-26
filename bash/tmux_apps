@@ -1,1 +1,1 @@
-alias go_apps="$SHELL ~/Documents/appsc/appsc.tmux"
+alias go_appsc="$SHELL ~/Documents/appsc/appsc.tmux"
