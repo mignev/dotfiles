@@ -7,6 +7,7 @@ alias ls="ls -G"
 alias wgets="wget --no-check-certificate"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias pyg="pygrep"
+alias tmx="tmuxer"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -16,6 +17,10 @@ alias o="open ."  # OS X, open in Finder
 ###
 # Functions
 ###
+
+dws () { cd ~/Downloads/"$1"; }
+docs () { cd ~/Documents/"$1"; }
+htdocs () { cd /Applications/XAMPP/htdocs/"$1"; }
 
 # Clone github repo
 ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$1"; }

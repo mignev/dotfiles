@@ -19,7 +19,24 @@ syntax enable
 filetype on
 filetype plugin on
 filetype indent plugin on
+
 helptags ~/.vim/doc
+
+" Easily mark a single line in character-wise visual mode
+"xnoremap v <esc>0v$
+nnoremap vv _v$h
+
+" Always move through visual lines:
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+
+" Faster scrolling:
+nmap J 5j
+nmap K 5k
+xmap J 5j
+xmap K 5k
 
 " Read modelines
 set modeline
@@ -77,6 +94,8 @@ map <F3> :IndentGuidesToggle<CR>
 ia teh the
 ia htis this
 ia tihs this
+ia sefl self
+ia slef self
 ia eariler earlier
 ia funciton function
 ia funtion function
