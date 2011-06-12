@@ -8,6 +8,7 @@ alias wgets="wget --no-check-certificate"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias pyg="pygrep"
 alias tmx="tmuxer"
+alias hard="pyhard"
 
 alias ..="cd .."
 alias ...="cd ../.."
