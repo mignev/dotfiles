@@ -1,6 +1,3 @@
-" MacVim Settings
-set guifont=Monaco:h12
-
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -12,6 +9,8 @@ set showmatch
 
 " Use backups (to prevent, y'know, wiping out C code with archives...)
 "set backup
+
+"set t_Co=256
 
 " Enable syntax highlighting, indenting, etc.
 syntax enable
@@ -37,6 +36,8 @@ nmap J 5j
 nmap K 5k
 xmap J 5j
 xmap K 5k
+
+set mouse=a
 
 " Read modelines
 set modeline
@@ -87,8 +88,13 @@ set incsearch
 set ignorecase
 "set smartcase
 
+nnoremap <C-f><C-f> :FufFile<CR>
+
 map <F2> :NERDTree<CR>
 map <F3> :IndentGuidesToggle<CR>
+map <F4> :TlistToggle<CR>
+
+nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
 
 " Correct some spelling mistakes
 ia teh the
@@ -126,8 +132,9 @@ autocmd BufNewFile *.c* exe "1," . 5 . "g/Created By :.*/s//Created By : " .g:sn
 " colorscheme guepardo
 " colorscheme fokus
 " colorscheme eclipse
+" colorscheme blackboard
 "
-colorscheme blackboard
+colorscheme wombat256
 
 let g:indent_guides_auto_colors = 1 
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
@@ -140,3 +147,9 @@ let g:indent_guides_guide_size=1
 " Backups
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/backup
+
+" MacVim Settings
+if has("gui_running")
+    set guifont=Monaco:h12
+    colorscheme blackboard
+endif
