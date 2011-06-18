@@ -96,6 +96,9 @@ map <F4> :TlistToggle<CR>
 
 nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
 
+"If you'd like to open tag list on right,
+"let Tlist_Use_Right_Window = 1
+
 " Correct some spelling mistakes
 ia teh the
 ia htis this
@@ -147,6 +150,12 @@ let g:indent_guides_guide_size=1
 " Backups
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/backup
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+"set ofu=syntaxcomplete#Complete
+"autocmd FileType python set
+set tags+=$HOME/.vim/tags/python.ctags
+inoremap <C-space> <C-x><C-o>
 
 " MacVim Settings
 if has("gui_running")
