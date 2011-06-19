@@ -44,7 +44,3 @@ def install_dotfiles():
 
 if __name__ == '__main__':
     main()
-
-#print(files)
-#print(home_dir)
-#print(current_dir)
