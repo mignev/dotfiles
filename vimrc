@@ -10,7 +10,7 @@ set showmatch
 " Use backups (to prevent, y'know, wiping out C code with archives...)
 "set backup
 
-"set t_Co=256
+set t_Co=256
 
 " Enable syntax highlighting, indenting, etc.
 syntax enable
@@ -159,6 +159,6 @@ inoremap <C-space> <C-x><C-o>
 
 " MacVim Settings
 if has("gui_running")
-    set guifont=Monaco:h12
+    set guifont=Monaco:h13
     colorscheme blackboard
 endif

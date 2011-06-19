@@ -40,5 +40,15 @@ BWHITE='\e[47m'
 
 # Update the command prompt to be <user>:<current_directory>(git_branch) >
 # Note that the git branch is given a special color
-PS1="\n@\[$EGREEN\]\u\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
+is_linux=$(uname -an|grep 'Linux')
+
+if [ -n "$is_linux" ];
+then
+    #is_linux = True
+    PS1="\n@\[$EGREEN\]\u#\h\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
+else
+    #is_linux = False 
+    #Mac maybe :)
+    PS1="\n@\[$EGREEN\]\u\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
+fi
 #export PS=1'\h:\w\$ '

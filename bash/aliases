@@ -1,9 +1,22 @@
 #!/bin/bash
 
+is_linux=$(uname -an|grep 'Linux')
+
 alias reload_aliases="source ~/.bash/aliases"
 alias reload_bash="source ~/.bash/config"
 
-alias ls="ls -G"
+if [ -n "$is_linux" ];
+then
+    #is_linux = True
+    alias ls="ls --classify --color=auto"
+else
+    #is_linux = False 
+    #Mac maybe :)
+
+    alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
+    alias ls="ls -G"
+fi
+
 alias wgets="wget --no-check-certificate"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias pyg="pygrep"
@@ -15,14 +28,13 @@ alias ...="cd ../.."
 alias cdd='cd -'  # back to last directory
 alias o="open ."  # OS X, open in Finder
 
-alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
-
 ###
 # Functions
 ###
 
 dws () { cd ~/Downloads/"$1"; }
 docs () { cd ~/Documents/"$1"; }
+wk () { cd ~/Documents/work/"$1"; }
 htdocs () { cd /Applications/XAMPP/htdocs/"$1"; }
 
 # Clone github repo
