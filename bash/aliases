@@ -1,6 +1,7 @@
 #!/bin/bash
 
 is_linux=$(uname -an|grep 'Linux')
+is_macbook_pro=$(uname -an|grep 'Pro')
 
 alias reload_aliases="source ~/.bash/aliases"
 alias reload_bash="source ~/.bash/config"
@@ -35,7 +36,13 @@ alias o="open ."  # OS X, open in Finder
 dws () { cd ~/Downloads/"$1"; }
 docs () { cd ~/Documents/"$1"; }
 wk () { cd ~/Documents/work/"$1"; }
-htdocs () { cd /Applications/XAMPP/htdocs/"$1"; }
+
+if [ -n "$is_macbook_pro" ];
+then
+    htdocs () { cd /Applications/MAMP/htdocs/"$1"; }
+else
+    htdocs () { cd /Applications/XAMPP/htdocs/"$1"; }
+fi
 
 # Clone github repo
 ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$1"; }
