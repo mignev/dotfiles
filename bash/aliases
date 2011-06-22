@@ -40,6 +40,7 @@ wk () { cd ~/Documents/work/"$1"; }
 if [ -n "$is_macbook_pro" ];
 then
     htdocs () { cd /Applications/MAMP/htdocs/"$1"; }
+    alias mysql="/Applications/MAMP/Library/bin/mysql"
 else
     htdocs () { cd /Applications/XAMPP/htdocs/"$1"; }
 fi
