@@ -7,6 +7,8 @@ set nocompatible
 " Briefly jump to matching parenthesis/bracket
 set showmatch
 
+set nowrap
+
 " Use backups (to prevent, y'know, wiping out C code with archives...)
 "set backup
 
@@ -37,7 +39,14 @@ nmap K 5k
 xmap J 5j
 xmap K 5k
 
-set mouse=a
+map <C-Left> :tabprevious<CR>
+map <C-Right> :tabnext<CR>
+
+"For Tmux
+map <Esc>[D :tabprev<CR> 
+map <Esc>[C :tabnext<CR>
+
+"set mouse=a
 
 " Read modelines
 set modeline
@@ -128,6 +137,9 @@ autocmd BufNewFile *.c* exe "1," . 5 . "g/Creation Date :.*/s//Creation Date : "
 autocmd Bufwritepre,filewritepre *.c exe "1," . 5 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd BufNewFile *.c* exe "1," . 5 . "g/Created By :.*/s//Created By : " .g:snips_author
 
+autocmd FileType php noremap <C-M> :w!<CR>:!clear<CR>:!php %<CR>
+autocmd FileType php noremap <C-L> :w!<CR>:!clear<CR>:!php -l %<CR>
+
 " Color schemas
 " colorscheme automation
 " colorscheme bclear
@@ -151,11 +163,40 @@ let g:indent_guides_guide_size=1
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/backup
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 "set ofu=syntaxcomplete#Complete
+au BufNewFile,BufRead *.module set filetype=php
+au BufNewFile,BufRead *.test set filetype=php
+au BufNewFile,BufRead *.install set filetype=php
+au BufNewFile,BufRead *.inc set filetype=php
+
+
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType inc set omnifunc=phpcomplete#CompletePHP
+" Enable enhanced command line completion.
+set wildmenu wildmode=list:full
+ 
+"  " Ignore these filenames during enhanced command line completion.
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif " binary images
+set wildignore+=*.luac " Lua byte code
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.pyc " Python byte code
+set wildignore+=*.spl " compiled spelling word lists
+set wildignore+=*.sw? " Vim swap files
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set
 set tags+=$HOME/.vim/tags/python.ctags
 inoremap <C-space> <C-x><C-o>
+
+" You might also find this useful
+" " PHP Generated Code Highlights (HTML & SQL)                                              
+let php_sql_query=1
+let php_htmlInStrings=1
 
 " MacVim Settings
 if has("gui_running")
