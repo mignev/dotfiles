@@ -4,8 +4,9 @@ from os import listdir, getenv, getcwd, path, mkdir, system
 
 home_dir = getenv('HOME')
 current_dir = getcwd()
+current_user = getenv('USER')
 
-oldfiles_backup_dir = home_dir + '/mignev_old_dotfiles_backup'
+oldfiles_backup_dir = home_dir + '/' + current_user + '_old_dotfiles_backup'
 
 excludes = ['README', 'setup.py', '.gitignore', '.git']
 backup_files = ['.bashrc', '.vim', '.vimrc', '.bash_profile', '.gitconfig', '.profile', '.tmux.conf']
