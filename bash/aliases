@@ -3,6 +3,10 @@
 is_linux=$(uname -an|grep 'Linux')
 is_macbook_pro=$(uname -an|grep 'Pro')
 
+if [ -f ~/.bash/private_aliases ]; then
+    source ~/.bash/private_aliases
+fi
+
 alias reload_aliases="source ~/.bash/aliases"
 alias reload_bash="source ~/.bash/config"
 
