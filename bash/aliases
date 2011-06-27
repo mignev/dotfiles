@@ -52,6 +52,28 @@ fi
 # Clone github repo
 ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$1"; }
 
+function dumptcp
+{
+    NOW=$(date +%Y_%d_%m_%H_%M)
+    LOGFILE=tcpdump-$NOW.log
+
+    if [ -z "$1" ];
+    then
+        ETHIFACE="eth0"
+    else
+        ETHIFACE=$1
+    fi
+
+    COMMAND="tcpdump -i $ETHIFACE -s0 -w $LOGFILE"
+
+    if [ -n "$is_macbook_pro" ];
+    then
+        sudo $COMMAND
+    else
+        $COMMAND
+    fi
+}
+
 ######################
 # Print working file.
 function pwf {
