@@ -59,7 +59,13 @@ function dumptcp
 
     if [ -z "$1" ];
     then
-        ETHIFACE="eth0"
+        if [ -n "$is_macbook_pro" ];
+        then
+            ETHIFACE="en0"
+        else
+            ETHIFACE="eth0"
+        fi
+
     else
         ETHIFACE=$1
     fi
