@@ -45,7 +45,7 @@ is_linux=$(uname -an|grep 'Linux')
 if [ -n "$is_linux" ];
 then
     #is_linux = True
-    PS1="\n@\[$EGREEN\]\u\[$WHITE\]#\[$ECYAN\]\h\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n> "
+    PS1="\n@\[$EGREEN\]\u\[$WHITE\] on #\[$ECYAN\]\h\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n> "
 else
     #is_linux = False 
     #Mac maybe :)

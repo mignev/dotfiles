@@ -5,3 +5,5 @@ fi
 
 PATH="$PATH:$HOME/bin/"
 export PATH
+
+export PATH=${PATH}:/Users/mignev/Documents/android-sdk-mac_x86/tools:/Users/mignev/Documents/android-sdk-mac_x86/platform-tools
