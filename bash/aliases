@@ -2,6 +2,7 @@
 
 is_linux=$(uname -an|grep 'Linux')
 is_macbook_pro=$(uname -an|grep 'Pro')
+is_ppc=$(uname -an|grep 'PPC')
 
 if [ -f ~/.bash/private_aliases ]; then
     source ~/.bash/private_aliases
@@ -21,13 +22,14 @@ then
 else
     #is_linux = False 
     #Mac maybe :)
-
-    alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
+    if [ ! -n "$is_ppc" ]; then
+        alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
+    fi
     alias ls="ls -G"
+    alias updatedb="sudo /usr/libexec/locate.updatedb"
 fi
 
 alias wgets="wget --no-check-certificate"
-alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias pyg="pygrep"
 alias tmx="tmuxer"
 alias hard="pyhard"
