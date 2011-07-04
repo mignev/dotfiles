@@ -2,6 +2,13 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+
+    source ~/.bash/completion/git-completion.bash
+fi
+
+
 ##
 # Your previous /Users/mignev/.bash_profile file was backed up as /Users/mignev/.bash_profile.macports-saved_2011-06-18_at_01:30:11
 ##
