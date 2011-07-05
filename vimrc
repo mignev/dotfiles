@@ -160,8 +160,10 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " Backups
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/backup
+if !has("Linux")
+    set backupdir=$HOME/.vim/backup
+    set directory=$HOME/.vim/backup
+endif
 
 "set ofu=syntaxcomplete#Complete
 au BufNewFile,BufRead *.module set filetype=php
