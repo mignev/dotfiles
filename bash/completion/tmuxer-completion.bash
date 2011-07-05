@@ -7,17 +7,7 @@ _tmuxer()
     opts="ls run del open help version"
  
     case "${prev}" in
-    run)
-            local list=$(ls ~/.tmuxer/tmux_files |awk -F '.' '{print $1}')
-            COMPREPLY=( $(compgen -W "${list}" -- ${cur}) )
-            return 0
-            ;;
-    del)
-            local list=$(ls ~/.tmuxer/tmux_files |awk -F '.' '{print $1}')
-            COMPREPLY=( $(compgen -W "${list}" -- ${cur}) )
-            return 0
-            ;;
-    open)
+    run|del|rm|open )
             local list=$(ls ~/.tmuxer/tmux_files |awk -F '.' '{print $1}')
             COMPREPLY=( $(compgen -W "${list}" -- ${cur}) )
             return 0
