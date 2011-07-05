@@ -23,10 +23,11 @@ _tmuxer()
             return 0
             ;;
     *)
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-        return 0
         ;;
     esac
+    
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
 
 }
 complete -F _tmuxer tmuxer
