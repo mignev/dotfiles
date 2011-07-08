@@ -43,6 +43,8 @@ alias o="open ."  # OS X, open in Finder
 # Functions
 ###
 
+new_django () { ghcl mignev/django_app $1; }
+
 dws () { cd ~/Downloads/"$1"; }
 docs () { cd ~/Documents/"$1"; }
 wk () { cd ~/Documents/work/"$1"; }
@@ -56,7 +58,7 @@ else
 fi
 
 # Clone github repo
-ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$1"; }
+ghcl () { test -z "$1" && echo "Usage: ghcl username/repo"\n || git clone "http://github.com/$@"; }
 
 function dumptcp
 {
