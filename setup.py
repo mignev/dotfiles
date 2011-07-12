@@ -9,7 +9,7 @@ current_user = getenv('USER')
 oldfiles_backup_dir = home_dir + '/' + current_user + '_old_dotfiles_backup'
 
 excludes = ['README', 'setup.py', '.gitignore', '.git', '.gitmodules']
-backup_files = ['.bashrc', '.vim', '.vimrc', '.bash_profile', '.gitconfig', '.profile', '.tmux.conf', 'python']
+backup_files = ['.bashrc', '.vim', '.vimrc', '.bash_profile', '.gitconfig', '.profile', '.tmux.conf', 'python', 'virtualenvs']
 
 files = listdir( current_dir )
 
@@ -35,6 +35,11 @@ def make_backup():
             system("cp -R "+ the_file + " " + oldfiles_backup_dir + "/")
 
 def install_dotfiles():    
+    virtenvsdir = current_dir + '/virtualenvs'
+    if not path.exists( virtenvsdir ):
+        mkdir( virtenvsdir )
+        system('ln -s ' + virtenvsdir + ' ' + home_dir + '/.virtualenvs')
+
     for file in files:
         if file not in excludes:
             the_home_file = home_dir + '/.' + file

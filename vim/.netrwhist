@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/mignev/Documents/appsc'
 let g:netrw_dirhist_2='/Users/mignev/Documents/appsc/tests/appsc'
 let g:netrw_dirhist_3='/Users/mignev/Dropbox/work/tmuxer/tmuxer'
 let g:netrw_dirhist_4='/Users/mignev/test_files/tornado/django-tornado-demo/testsite'
+let g:netrw_dirhist_5='/Users/mignev/Music'
+let g:netrw_dirhist_6='/Users/mignev/test_files/javascriptmvc-3.0.5/cookbook'
+let g:netrw_dirhist_7='/Users/mignev/test_files/javascriptmvc-3.0.5/cookbook/controllers'

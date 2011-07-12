@@ -12,6 +12,10 @@ if [ -f ~/.bash/djm/djm.sh ]; then
     source ~/.bash/djm/djm.sh
 fi
 
+if [ -f ~/.bash/venv/venv.sh ]; then
+    source ~/.bash/venv/venv.sh
+fi
+
 alias reload_aliases="source ~/.bash/aliases"
 alias reload_bash="source ~/.bash/config"
 

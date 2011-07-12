@@ -1,3 +1,6 @@
 [submodule "bash/djm"]
 	path = bash/djm
 	url = git@github.com:mignev/djm.git
+[submodule "bash/venv"]
+	path = bash/venv
+	url = git@github.com:mignev/venv.git
