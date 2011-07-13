@@ -4,11 +4,11 @@ _venv()
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts="c a --help"
+    opts="create activate export ls --help"
  
     case "${prev}" in
-    a)
-        local list=$(ls ~/.virtualenvs) 
+    activate|a|e|export)
+        local list=$(find ~/.virtualenvs/ -maxdepth 1 -mindepth 1 -type d -exec basename {} \;) 
         COMPREPLY=( $(compgen -W "${list}" -- ${cur}) )
         return 0
         ;;
