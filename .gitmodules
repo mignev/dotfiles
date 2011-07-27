@@ -4,3 +4,6 @@
 [submodule "bash/venv"]
 	path = bash/venv
 	url = git@github.com:mignev/venv.git
+[submodule "vim/bundle/rtf-highlight"]
+	path = vim/bundle/rtf-highlight
+	url = https://github.com/dharanasoft/rtf-highlight.git
