@@ -9,7 +9,7 @@ current_user = getenv('USER')
 oldfiles_backup_dir = home_dir + '/' + current_user + '_old_dotfiles_backup'
 
 excludes = ['README', 'setup.py', '.gitignore', '.git', '.gitmodules']
-backup_files = ['.bashrc', '.vim', '.vimrc', '.bash_profile', '.gitconfig', '.profile', '.tmux.conf', 'python', 'virtualenvs']
+backup_files = ['.bashrc', '.vim', '.vimrc', '.bash_profile', '.gitconfig', '.profile', '.tmux.conf', 'python', 'virtualenvs', '.gitignore']
 
 files = listdir( current_dir )
 

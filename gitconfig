@@ -16,8 +16,21 @@
     br = branch
     co = checkout
     df = diff
+    dn = diff --name-status
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lolns = log --name-status --pretty=oneline
     ls = ls-files
+    srb = svn rebase
+    sc = svn dcommit
 
+[hooks]
+    mailinglist = "dplus@abv.bg"
+    senderemail = "m.ignev@gmail.com"
+    emailprefix = "[Git:PokkiImageCrop:mignev@dropbox]"
+    post-receive-logfile = "/tmp/post-receive-logfile"
+
+[core]
+	autocrlf = input
+	excludesfile = /Users/mignev/.gitignore
