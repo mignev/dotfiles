@@ -11,19 +11,25 @@
     untracked = cyan
 [alias]
     st = status
+    s  = status -s -b
     ci = commit
     c  = commit -am 
+    cm = commit --amend -am
+    cim = commit --amend -m
     br = branch
     co = checkout
     df = diff
     dn = diff --name-status
+    pa = format-patch master --stdout
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     lolns = log --name-status --pretty=oneline
+    ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ls = ls-files
     srb = svn rebase
     sc = svn dcommit
+    hrevert = reset --hard HEAD@{1}
 
 [hooks]
     mailinglist = "dplus@abv.bg"
@@ -34,3 +40,8 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/mignev/.gitignore
+[sendemail]
+	confirm = auto
+	chainreplyto = false
+[push]
+	default = current
