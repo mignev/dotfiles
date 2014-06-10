@@ -38,10 +38,90 @@ alias pyg="pygrep"
 alias tmx="tmuxer"
 alias hard="pyhard"
 
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
 alias cdd='cd -'  # back to last directory
 alias o="open ."  # OS X, open in Finder
+
+alias titanium="/Library/Application\ Support/Titanium/mobilesdk/osx/1.8.1/titanium.py"
+
+alias php52="/Applications/MAMP/bin/php5.2/bin/php"
+alias php53="/Applications/MAMP/bin/php5.3/bin/php"
+
+alias mrr="macrake run"
+
+alias pjson="python -m json.tool"
+alias ard="cd /Applications/Arduino.app/Contents/Resources/Java"
+alias findw="grep -oHnr"
+
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+
+###
+# Proudly stolen from alias.sh
+###
+
+alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
+extract () {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+alias lf='ls -Gl | grep ^d' #Only list directories
+alias lsd='ls -Gal | grep ^d' #Only list directories, including hidden ones
+
+# Show lines that are not blank or commented out
+alias active='grep -v -e "^$" -e"^ *#"'
+
+# Show hidden files only
+alias l.='ls -d .*'
+
+# Recursive directory listing
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+
+alias netlisteners='lsof -i -P | grep LISTEN'
+
+
+
+# Find text in any file
+ft() {
+    find . -name "$2" -exec grep -il "$1" {} \;
+}
+
+# find & replace
+findreplace(){
+    printf "Search: ${1}\n"
+    printf "Replace: ${2}\n"
+    printf "In: ${3}\n\n"
+ 
+    find . -name "*${3}" -type f | xargs perl -pi -e 's/${1}/${2}/g'
+}
 
 ###
 # Functions
@@ -116,7 +196,7 @@ function mkcd {
 # sshkey done.
 
 function sshkey {
-  ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_?sa.pub
+  ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_?sa.pub
     echo "sshkey done."
 }
 ######################
@@ -125,4 +205,19 @@ function sshkey {
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+hide_desktop_icons() {
+  # checks visibility and stores value in a variable
+  local isVisible="$(defaults read com.apple.finder CreateDesktop)"
+
+  # toggle desktop icon visibility based on variable
+  if [ "$isVisible" = 1 ]; then
+    defaults write com.apple.finder CreateDesktop -bool false
+  else
+    defaults write com.apple.finder CreateDesktop -bool true
+  fi
+
+  # force changes by restarting Finder
+  killall Finder
 }
