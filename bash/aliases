@@ -24,7 +24,7 @@ then
     #is_linux = True
     alias ls="ls --classify --color=auto"
 else
-    #is_linux = False 
+    #is_linux = False
     #Mac maybe :)
     if [ ! -n "$is_ppc" ]; then
         alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
@@ -91,6 +91,12 @@ function dumptcp
         $COMMAND
     fi
 }
+
+# IP addresses
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
 
 ######################
 # Print working file.
