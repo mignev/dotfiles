@@ -24,3 +24,20 @@ if [ -f /opt/local/etc/bash_completion ]; then
     done
 fi
 
+. /Users/mignev/.startapp/bash_autocomplete
+export GOPATH=~/code
+
+##
+# Your previous /Users/mignev/.bash_profile file was backed up as /Users/mignev/.bash_profile.macports-saved_2015-01-08_at_21:50:44
+##
+
+# MacPorts Installer addition on 2015-01-08_at_21:50:44: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/mignev/Downloads/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc'

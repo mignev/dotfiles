@@ -150,6 +150,7 @@ autocmd FileType php noremap <C-L> :w!<CR>:!clear<CR>:!php -l %<CR>
 " colorscheme blackboard
 "
 colorscheme wombat256
+" colorscheme bclear
 
 let g:indent_guides_auto_colors = 1 
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3

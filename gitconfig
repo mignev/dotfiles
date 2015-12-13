@@ -16,6 +16,7 @@
     c  = commit -am 
     cm = commit --amend -am
     cim = commit --amend -m
+    ec  = commit --allow-empty -am
     br = branch
     co = checkout
     df = diff
@@ -45,3 +46,6 @@
 	chainreplyto = false
 [push]
 	default = current
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

@@ -47,8 +47,8 @@ then
     #is_linux = True
     PS1="\n@\[$EGREEN\]\u\[$WHITE\] on #\[$ECYAN\]\h\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n# "
 else
-    #is_linux = False 
+    #is_linux = False
     #Mac maybe :)
-    PS1="\n@\[$EGREEN\]\u\[$WHITE\] in \[$EBLUE\]\w \[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
+    PS1="\n@\[$EGREEN\]\u\[$WHITE\] in \[$EBLUE\]\w \[$WHITE\]\[$ERED\]\$(parse_git_branch)\[$NO_COLOR\] \[$MAGENTA\]\$(startapp_app)\[$NO_COLOR\] \n→ "
 fi
 #export PS=1'\h:\w\$ '

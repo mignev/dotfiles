@@ -3,3 +3,5 @@ export LANG=en_US.UTF-8
 
 #Editor var for tmuxinator
 export EDITOR='vim'
+
+export MY_STARTAPP_NAMESPACE='mignev'

@@ -24,7 +24,7 @@ then
     #is_linux = True
     alias ls="ls --classify --color=auto"
 else
-    #is_linux = False 
+    #is_linux = False
     #Mac maybe :)
     if [ ! -n "$is_ppc" ]; then
         alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
@@ -38,7 +38,7 @@ alias pyg="pygrep"
 alias tmx="tmuxer"
 alias hard="pyhard"
 
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -108,7 +108,6 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias netlisteners='lsof -i -P | grep LISTEN'
 
 
-
 # Find text in any file
 ft() {
     find . -name "$2" -exec grep -il "$1" {} \;
@@ -119,7 +118,7 @@ findreplace(){
     printf "Search: ${1}\n"
     printf "Replace: ${2}\n"
     printf "In: ${3}\n\n"
- 
+
     find . -name "*${3}" -type f | xargs perl -pi -e 's/${1}/${2}/g'
 }
 
@@ -172,6 +171,14 @@ function dumptcp
     fi
 }
 
+# IP addresses
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+alias flushdns="sudo dscacheutil -flushcache"
+
+
 ######################
 # Print working file.
 function pwf {
@@ -201,6 +208,16 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+startapp_app() {
+  local rocket=$'\xF0\x9F\x9A\x80';
+  is_app=$(git config --get rhc.domain-name 2> /dev/null);
+  if [ -n "$is_app" ]; then
+    local app_name=$(git config --get rhc.app-name);
+    local app_domain=$is_app;
+    echo "$rocket <$app_name/$app_domain>";
+  fi
+}
+
 hide_desktop_icons() {
   # checks visibility and stores value in a variable
   local isVisible="$(defaults read com.apple.finder CreateDesktop)"
@@ -214,4 +231,10 @@ hide_desktop_icons() {
 
   # force changes by restarting Finder
   killall Finder
+}
+
+function title()
+{
+  TITLE=$*;
+  export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
 }
