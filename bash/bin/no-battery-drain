@@ -3,6 +3,7 @@ function quiet_killall {
 	killall "$1" 2>&1 | fgrep -v 'No matching processes belonging to you were found'
 }
 quiet_killall Dropbox
+quiet_killall 'pCloud Drive'
 quiet_killall Skype
 quiet_killall Spotify
 quiet_killall iTunes
