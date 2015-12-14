@@ -27,7 +27,13 @@ else
     #is_linux = False
     #Mac maybe :)
     if [ ! -n "$is_ppc" ]; then
+      if [ -f /Applications/MacPorts/MacVim.app/Contents/MacOS/Vim ]; then
         alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
+      fi
+
+      if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+        alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+      fi
     fi
     alias ls="ls -G"
     alias updatedb="sudo /usr/libexec/locate.updatedb"

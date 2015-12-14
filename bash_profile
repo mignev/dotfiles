@@ -16,7 +16,7 @@ fi
 
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
-    
+
     completions=$(ls ~/.bash/completion/)
     for file in $completions
     do
@@ -24,7 +24,10 @@ if [ -f /opt/local/etc/bash_completion ]; then
     done
 fi
 
-. /Users/mignev/.startapp/bash_autocomplete
+if [ -f /Users/mignev/.startapp/bash_autocomplete ]; then
+  . /Users/mignev/.startapp/bash_autocomplete
+fi
+
 export GOPATH=~/code
 
 ##
@@ -37,7 +40,11 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/mignev/Downloads/google-cloud-sdk/path.bash.inc'
+if [ -f /Users/mignev/Downloads/google-cloud-sdk/path.bash.inc ]; then
+  source '/Users/mignev/Downloads/google-cloud-sdk/path.bash.inc'
+fi
 
 # The next line enables shell command completion for gcloud.
-source '/Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc'
+if [ -f /Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc ]; then
+  source '/Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc'
+fi

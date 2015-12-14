@@ -1,0 +1,6 @@
+#!/bin/sh
+networksetup -setairportpower en0 on
+open -a Dropbox
+open -a Slack
+brightness 0.6
+blueutil on
