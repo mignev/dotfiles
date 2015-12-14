@@ -14,5 +14,6 @@ quiet_killall Twitter
 quiet_killall Messages
 quiet_killall Swipes
 quiet_killall Tunnelblick
+quiet_killall CloudApp
 brightness 0.2
 blueutil off
