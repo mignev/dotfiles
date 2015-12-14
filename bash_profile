@@ -48,3 +48,5 @@ fi
 if [ -f /Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/mignev/Downloads/google-cloud-sdk/completion.bash.inc'
 fi
+
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
