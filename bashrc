@@ -9,3 +9,5 @@ source ~/.bash/env
 if [ -f ~/.localrc ]; then
   . ~/.localrc
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -16,8 +16,8 @@ if [ -f ~/.bash/venv/venv.sh ]; then
     source ~/.bash/venv/venv.sh
 fi
 
-alias reload_aliases="source ~/.bash/aliases"
-alias reload_bash="source ~/.bash/config"
+alias reload_aliases="cd && source ~/.bash/aliases && cd -"
+alias reload_bash="cd && source ~/.bashrc && cd -"
 
 if [ -n "$is_linux" ];
 then
